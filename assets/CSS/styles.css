@@ -7,13 +7,14 @@
 body {
     height: 100%;
     font: normal 16px Arial, Helvetica, sans-serif;
-    background-color: #fafafa;
+    background-color: rgb(33, 36, 37);
     line-height: 1.4em;
+    color: #f5efefe3;
   }
 
 .background-image {
     background-image: url('../images/darksky.jpg');
-    background-color: #34515f;
+    background-color: #232a2e;
     min-height: 250px;
 
     background-position: center;
@@ -23,7 +24,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: .9;
 
 }
 .background-content {
@@ -35,8 +35,16 @@ body {
 }
 .background-content h1 {
     font-size: 3rem;
-    padding-bottom: 2.5rem;
+    padding-bottom: 1rem;
 }
 .background-content p {
     font-size: 1.5rem;
+}
+
+.container {
+    margin-top: 2rem;
+}
+.btn-primary {
+    background-color: #A52422;
+    border-color: #A52422;
 }

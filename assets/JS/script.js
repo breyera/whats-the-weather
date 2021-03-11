@@ -1,0 +1,12 @@
+const input = document.querySelector('#city-input');
+const search = document.querySelector('#search-button');
+const clear = document.querySelector('#clear-history');
+const cityName = document.querySelector('#city-name');
+const picEl = document.querySelector('#current-pic');
+const tempEl = document.querySelector('#temperature');
+const humidityEl = document.querySelector('humidity');
+const windEl = document.querySelector('wind-speed');
+const uvEl = document.querySelector('#UV-index');
+const history = document.querySelector('#history');
+let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+const apiKey = '633e67356d09a60bb0a6706446a50e02';
