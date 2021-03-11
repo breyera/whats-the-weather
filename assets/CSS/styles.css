@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    font: normal 16px Arial, Helvetica, sans-serif;
+    background-color: #fafafa;
+    line-height: 1.4em;
+  }
+
+.background-image {
+    background-image: url('../images/darksky.jpg');
+    background-color: #34515f;
+    min-height: 250px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: .9;
+
+}
+.background-content {
+    display: block;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    color: #fff;
+}
+.background-content h1 {
+    font-size: 3rem;
+    padding-bottom: 2.5rem;
+}
+.background-content p {
+    font-size: 1.5rem;
+}
