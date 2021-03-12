@@ -2,7 +2,7 @@
 
 ## This Repository
 
-For this project I was tasked with using the OpenWeather API to create a weather dashboard from scratch using HTML, CSS, JavaScript, and async functions. By entering a city name in the search bar, weather data is retrieved from the API and provides the user with the current weather conditions (date, weather icon, temperature, humidity, wind speed, and uv index) as well as a 5 day forecast. Cities searched by the user are saved in local storage and added to a list below the search bar so the user can see where they have previously requested weather data from. They can also clear this data using a button.
+For this project I was tasked with using the OpenWeather API to create a weather dashboard from scratch using HTML, CSS, JavaScript, and async functions. By entering a city name in the search bar, weather data is retrieved from the API and provides the user with the current weather conditions (date, weather icon, temperature, humidity, wind speed, and uv index) as well as a 5 day forecast. Cities searched by the user are saved in local storage and added to a list below the search bar so the user can see where they have previously requested weather data from. If they want to see a pervious cities weather, they just need to click on the list item. They can also clear cites using a button to start fresh.
 
 In order for people with different screen sizes to view the site, I added a mobile view CSS sheet for responsiveness.
 
