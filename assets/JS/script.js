@@ -4,11 +4,11 @@ const clear = document.querySelector('#clear-history');
 const cityName = document.querySelector('#city-name');
 const picEl = document.querySelector('#current-pic');
 const tempEl = document.querySelector('#temperature');
-const humidityEl = document.querySelector('humidity');
-const windEl = document.querySelector('wind-speed');
+const humidityEl = document.querySelector('#humidity');
+const windEl = document.querySelector('#wind-speed');
 const uvEl = document.querySelector('#UV-index');
 const history = document.querySelector('#history');
-let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+let searchHistory = JSON.parse(localStorage.getItem("search")) ?? [];
 // console.log(searchHistory);
 const apiKey = 'c4383c3920ad65c7f73d332129d17468';
 
@@ -38,27 +38,30 @@ async function getWeather(cityName) {
         let fetchUV = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&cnt=1";
         let queryUVURL = await fetch(fetchUV);
         let uvReponse = await queryUVURL.json();
+        console.log(uvReponse);
         let uvIndex = document.createElement('span');
         uvIndex.setAttribute('class', 'badge badge-danger');
-        uvIndex.innerHTML = uvReponse.data[0].value;
+        uvIndex.innerHTML = uvReponse[0].value;
         uvEl.innerHTML = "UV Index: ";
         uvEl.append(uvIndex);
-
-        //  Using saved city name, pull 5-day forecast get request from open weather map api
-
+        //catch errors
     } catch (e) {
         console.log(e);
     }
 }
 
 function K2F(K) {
-    return Math.floor((K - 273.15) *1.8 +32);
+    return Math.floor((K - 273.15) * 1.8 + 32);
 }
 
 search.addEventListener("click", function() {
-    const searchCity = input.value;
+    const searchCity = "" + input.value;
     getWeather(searchCity);
-    searchHistory.push(searchCity);
+    if (searchHistory.includes(searchCity.toLowerCase()) === false) {
+        searchHistory.push(searchCity.toLowerCase());
+        // console.log(searchHistory.includes(searchCity.toLowerCase()));
+        // console.log(searchHistory, searchCity.toLowerCase());
+    } 
     localStorage.setItem("search", JSON.stringify(searchHistory));
     renderHistory();
 });
@@ -74,7 +77,7 @@ function renderHistory() {
         historyLi.addEventListener("click", function(){
             getWeather(historyLi.value);
         });
-        historyLi.append(historyLi);
+        history.append(historyLi);
     }
 }
 
