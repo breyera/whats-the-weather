@@ -20,12 +20,14 @@ async function getWeather(cityName) {
         let response = await fetchMe.json();
         console.log(response);
         //show current conditions using parse
+        //show month/day/year
         const todaysDate = new Date(response.dt * 1000);
         console.log(todaysDate);
         const day = todaysDate.getDate();
         const month = todaysDate.getMonth() + 1;
         const year = todaysDate.getFullYear();
-        cityName.innerHTML = `${response.name} (${month}/${day}/${year}) `;
+        cityName.innerHTML = response.name + " (" + month + "/" + day + "/" + year + ") ";
+        //weather icon image
         let weatherIcon = response.weather[0].icon;
         picEl.setAttribute("src","https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
         picEl.setAttribute("alt",response.weather[0].description);
@@ -44,6 +46,43 @@ async function getWeather(cityName) {
         uvIndex.innerHTML = uvReponse[0].value;
         uvEl.innerHTML = "UV Index: ";
         uvEl.append(uvIndex);
+
+        //get 5-day forecast using city name
+        let cityFive = response.id;
+        let fetchFive = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityFive + "&appid=" + apiKey;
+        let queryFive = await fetch(fetchFive);
+        let fiveResponse = await queryFive.json();
+        console.log(fiveResponse);
+        const forecast = document.querySelectorAll(".forecast");
+
+        for (let i = 0; i < forecast.length; i++) {
+            forecast[i].innerHTML = "";
+            const fIndex = i * 8 + 4;
+            const fDate = new Date(fiveResponse.list[fIndex].dt * 1000);
+            const fDay = fDate.getDate();
+            const fMonth = fDate.getMonth();
+            const fYear = fDate.getFullYear();
+            const fDateEl = document.createElement("p");
+            //show month/day/year
+            fDateEl.setAttribute("class", "mt-3 mb-0 forecast-date");
+            fDateEl.innerHTML = fMonth + "/" + fDay + "/" + fYear;
+            forecast[i].append(fDateEl);
+            //weather icon image, humidity, temp, and wind
+            const fWeatherEl = document.createElement("img");
+            fWeatherEl.setAttribute("src","https://openweathermap.org/img/wn/" + fiveResponse.list[fIndex].weather[0].icon + "@2x.png")
+            fWeatherEl.setAttribute("alt", fiveResponse.list[fIndex].weather[0].description);
+            forecast[i].append(fWeatherEl);
+            const fTempEl = document.createElement("p");
+            fTempEl.innerHTML = "Temperature: " + K2F(fiveResponse.list[fIndex].main.temp) + " &#176F";
+            forecast[i].append(fTempEl);
+            const fHumEl = document.createElement("p");
+            fHumEl.innerHTML = "Humidity: " + fiveResponse.list[fIndex].main.humidity + "%";
+            forecast[i].append(fHumEl);
+            const fWindEl = document.createElement("p");
+            fWindEl.innerHTML = "Wind Speed: " + fiveResponse.list[fIndex].wind.speed + " MPH";
+            forecast[i].append(fWindEl);
+        }
+
         //catch errors
     } catch (e) {
         console.log(e);
@@ -63,6 +102,12 @@ search.addEventListener("click", function() {
         // console.log(searchHistory, searchCity.toLowerCase());
     } 
     localStorage.setItem("search", JSON.stringify(searchHistory));
+    renderHistory();
+});
+
+clear.addEventListener("click", function() {
+    searchHistory = [];
+    localStorage.removeItem("search")
     renderHistory();
 });
 

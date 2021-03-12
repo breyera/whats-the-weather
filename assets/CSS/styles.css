@@ -44,7 +44,34 @@ body {
 .container {
     margin-top: 2rem;
 }
-.btn-primary {
+.btn {
     background-color: #A52422;
     border-color: #A52422;
+    color: #fff;
+}
+.btn:hover {
+    opacity: 0.6;
+    background-color: none;
+    border-color: none;
+}
+
+.btn:active, .btn:focus {
+    outline: none;
+    border: none;
+}
+
+#history input {
+    text-transform: capitalize;
+}
+.search-header {
+    color: #232a2e;
+    padding-bottom: 0.2rem;
+}
+.card-background {
+    background-color: #c5d5e499;
+    border-color: #c5d5e499;
+    color: #fff;
+}
+.forecast-date {
+    text-align: center;
 }
