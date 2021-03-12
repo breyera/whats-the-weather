@@ -44,7 +44,13 @@ h3 {
 .background-content p {
     font-size: 1.5rem;
 }
-
+.name-flex {
+    display: flex;
+    align-items: center;
+}
+#city-name {
+    font-size: 2rem;
+}
 .container {
     margin-top: 2rem;
 }

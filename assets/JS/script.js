@@ -1,7 +1,7 @@
 const input = document.querySelector('#city-input');
 const search = document.querySelector('#search-button');
 const clear = document.querySelector('#clear-history');
-const cityName = document.querySelector('#city-name');
+const city = document.querySelector('#city-name');
 const picEl = document.querySelector('#current-pic');
 const tempEl = document.querySelector('#temperature');
 const humidityEl = document.querySelector('#humidity');
@@ -31,7 +31,7 @@ async function getWeather(cityName) {
         const day = todaysDate.getDate();
         const month = todaysDate.getMonth() + 1;
         const year = todaysDate.getFullYear();
-        cityName.innerHTML = response.name + " (" + month + "/" + day + "/" + year + ") ";
+        city.innerHTML = response.name + " (" + month + "/" + day + "/" + year + ") ";
         //weather icon image
         let weatherIcon = response.weather[0].icon;
         picEl.setAttribute("src","https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
