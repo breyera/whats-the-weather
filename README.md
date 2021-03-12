@@ -12,7 +12,7 @@ In order for people with different screen sizes to view the site, I added a mobi
 
 ### Important Link and Screenshots
 * [deployed site](https://breyera.github.io/whats-the-weather/)
-![gif of using code quiz](assets/imgages/weather-dashboard.gif)
+![gif of using weather dashboard](assets/images/weather-dashboard.gif)
 
 ### References
 * [API from OpenWeather: ](https://openweathermap.org/api)
