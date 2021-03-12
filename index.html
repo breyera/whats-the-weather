@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="./assets/CSS/styles.css">
+    <link rel="stylesheet" media="only screen and (max-width: 768px)" href="./assets/CSS/mobile.css">
 </head>
 <body>
     <header>
@@ -21,9 +22,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-4 bg-light">
-                <p class="search-header my-1">Search by city</p>
-                <div class="input-group mb-3">
+            <div class="col-4 bg-light" id="to-row">
+                <p class="search-header">Search by city</p>
+                <div class="input-group button-space">
                     <input id="city-input" type="text" class="form-control" placeholder="Enter city name" aria-label="Enter city name">
                     <div class="input-group-append">
                         <button class="btn" type="button" id="search-button">
@@ -31,16 +32,16 @@
                         </button>
                     </div>
                 </div>
-                <button class="btn mb-3" type="button" id="clear-history">Clear history</button>
+                <button class="btn button-space" type="button" id="clear-history">Clear history</button>
                 <form id="history"></form>
             </div>
-            <div class="col-8">
-                <div class="row mr-0">
-                    <div class="col-12 border border-dark m-3 rounded">
+            <div class="col-8" id="main-card">
+                <div class="row" id="cardsss">
+                    <div class="col-12 border border-dark m-3 rounded" id="main-box">
                         <div class="row">
                             <div class="col-12">
                                 <span id="city-name" class="city-name align-middle"></span>
-                                <img id="current-pic" src="placeholder" alt="">
+                                <img id="current-pic" src="" alt="">
                             </div>
                         </div>
                         <div class="row">
@@ -65,12 +66,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mobile-five">
                     <div class="col-12">
                         <h3>5-Day Forecast</h3>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mobile-cards">
                     <div class="col forecast text-white ml-3 mb-3 rounded card-background"></div>
                     <div class="col forecast text-white ml-3 mb-3 rounded card-background"></div>
                     <div class="col forecast text-white ml-3 mb-3 rounded card-background"></div>

@@ -11,6 +11,9 @@ const history = document.querySelector('#history');
 let searchHistory = JSON.parse(localStorage.getItem("search")) ?? [];
 // console.log(searchHistory);
 const apiKey = 'c4383c3920ad65c7f73d332129d17468';
+const row = document.querySelector("#to-row");
+const mainC = document.querySelector("#main-card");
+const cards = document.querySelector("#cardsss");
 
 //get city name with search button clicked
 async function getWeather(cityName) {
@@ -21,6 +24,8 @@ async function getWeather(cityName) {
         console.log(response);
         //show current conditions using parse
         //show month/day/year
+        let mainBox = document.querySelector("#main-box");
+        mainBox.classList.add("main-box");
         const todaysDate = new Date(response.dt * 1000);
         console.log(todaysDate);
         const day = todaysDate.getDate();

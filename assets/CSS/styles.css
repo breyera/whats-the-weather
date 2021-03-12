@@ -12,6 +12,10 @@ body {
     color: #f5efefe3;
   }
 
+h3 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 .background-image {
     background-image: url('../images/darksky.jpg');
     background-color: #232a2e;
@@ -64,6 +68,7 @@ body {
     text-transform: capitalize;
 }
 .search-header {
+    margin-top: 1rem;
     color: #232a2e;
     padding-bottom: 0.2rem;
 }
@@ -74,4 +79,19 @@ body {
 }
 .forecast-date {
     text-align: center;
+}
+
+.m-3 {
+    margin-top: 0!important;
+}
+.main-box {
+    background-color: #aabdced4;
+    border-color: #aabdced4;
+}
+.button-space {
+    margin-bottom: 1rem;
+    padding-bottom: 0.2rem;
+}
+.form-control {
+    margin-bottom: 1rem;
 }
